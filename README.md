@@ -1,59 +1,168 @@
-# 🚀 AI Material Take-Off Generator
+# 🚀 AI Material Take-Off (MTO) Generator
 
-An AI-powered web application that automatically generates a Material Take-Off (MTO) from piping isometric drawings using Google Gemini AI.
+## Pathnovo Full-Stack AI Engineer Assessment
 
-## 📌 Project Overview
+---
 
-The AI Material Take-Off Generator helps engineers automate the extraction of piping components from isometric drawings. Instead of manually counting components, users upload a PDF or image, and the AI generates a structured Material Take-Off report.
+# 📌 Project Overview
 
-## 📌 Project Description
+The AI Material Take-Off (MTO) Generator is an AI-powered web application that automatically extracts piping components from engineering isometric drawings and generates a structured Material Take-Off (MTO).
 
-The AI Material Take-Off (MTO) Generator is an AI-powered web application designed to automate the extraction of material quantities from piping isometric drawings. Traditionally, engineers manually inspect engineering drawings to identify piping components and prepare Material Take-Off reports, a process that is time-consuming, repetitive, and prone to human error.
+The application enables users to upload a piping isometric drawing (PDF or image), processes the drawing using Google Gemini AI through a FastAPI backend, and displays the generated Material Take-Off in an interactive dashboard with CSV export functionality.
 
-This application leverages Google Gemini AI to analyze uploaded piping isometric drawings in PDF or image format, identify visible piping components such as pipes, elbows, tees, reducers, flanges, valves, gaskets, bolt sets, supports, and other fittings, and generate a structured Material Take-Off report automatically. The generated report is displayed through a modern, responsive dashboard and can be downloaded as a CSV file for further engineering analysis and documentation.
+The primary objective of this project is to demonstrate an end-to-end AI pipeline rather than perfect engineering extraction accuracy.
 
-The solution is built using a Next.js frontend, a FastAPI backend, and the Google Gemini 2.5 Flash model, demonstrating the integration of modern AI technologies with full-stack web development. The application is designed to handle different types of piping isometric drawings, including scanned, hand-marked, low-quality, and CAD-generated drawings, making it a scalable foundation for AI-assisted engineering workflows.
+---
 
-## ✨ Features
+# 🎯 Problem Statement
 
-- 📄 Upload PDF or image isometric drawings
-- 🤖 AI-powered component detection using Google Gemini AI
-- 📊 Automatic Material Take-Off generation
-- 📋 Displays components in a clean dashboard
-- 📥 Download results as CSV
-- ⚡ FastAPI backend
-- 🎨 Modern Next.js frontend
-- 🌙 Responsive dark-themed UI
+Preparing Material Take-Offs manually from piping isometric drawings is repetitive, time-consuming, and susceptible to human error. Engineers must identify piping components, estimate quantities, and prepare procurement lists before fabrication can begin.
 
-## 🛠 Tech Stack
+This project automates that workflow using Artificial Intelligence, reducing manual effort while providing a structured engineering output suitable for further review.
 
-### Frontend
+---
+
+# 📖 Domain Knowledge
+
+## What is a Piping Isometric Drawing?
+
+A piping isometric drawing is a two-dimensional engineering representation of a three-dimensional piping system.
+
+It typically contains:
+
+- Pipe routing
+- Pipe sizes
+- Elbows
+- Tees
+- Reducers
+- Flanges
+- Valves
+- Supports
+- Weld locations
+- Bill of Materials
+- Engineering dimensions
+
+These drawings are widely used in:
+
+- Oil & Gas
+- Petrochemical
+- Chemical
+- Pharmaceutical
+- Power Generation
+
+---
+
+## What is a Material Take-Off (MTO)?
+
+A Material Take-Off is a structured list of all materials required to fabricate and install a piping system.
+
+Typical components include:
+
+- Pipe
+- Elbows
+- Tees
+- Reducers
+- Flanges
+- Gate Valves
+- Globe Valves
+- Ball Valves
+- Butterfly Valves
+- Bolt Sets
+- Gaskets
+- Pipe Supports
+- Instruments
+
+The generated MTO assists procurement, fabrication planning, inventory management, and project estimation.
+
+---
+
+# ✨ Features
+
+- Upload piping isometric drawings (PDF/Image)
+- AI-powered Material Take-Off generation
+- Automatic piping component extraction
+- Responsive dashboard
+- CSV export
+- FastAPI backend
+- Next.js frontend
+- Google Gemini AI integration
+- Mock Mode support (works without API key)
+
+---
+
+# 🏗 System Architecture
+
+```
+                User
+                  │
+                  ▼
+        Next.js Frontend
+                  │
+          Upload Drawing
+                  │
+                  ▼
+          FastAPI Backend
+                  │
+                  ▼
+        Google Gemini AI
+                  │
+        Structured JSON Output
+                  │
+                  ▼
+     Material Take-Off Dashboard
+                  │
+                  ▼
+             CSV Export
+```
+
+---
+
+# 🤖 AI Pipeline
+
+1. User uploads an isometric drawing.
+2. FastAPI stores the uploaded file temporarily.
+3. The drawing is sent to Google Gemini AI.
+4. Gemini identifies visible piping components.
+5. The AI response is converted into structured JSON.
+6. The frontend displays the Material Take-Off.
+7. Users can export the generated MTO as CSV.
+
+---
+
+# 🛠 Technology Stack
+
+## Frontend
+
 - Next.js
 - React
 - TypeScript
 
-### Backend
+## Backend
+
 - FastAPI
 - Python
 
-### AI
-- Google Gemini 2.5 Flash API
+## AI
 
-### Other
-- CSV Export
-- REST API
-- CORS
-- dotenv
+- Google Gemini 2.5 Flash
 
-## 📂 Project Structure
+## Supporting Libraries
+
+- python-dotenv
+- CORS Middleware
+
+---
+
+# 📂 Folder Structure
 
 ```
-isometric-mto/
+ai-material-takeoff-generator/
+
 │
 ├── backend/
 │   ├── main.py
 │   ├── requirements.txt
-│   └── .env
+│   └── .env (local only)
 │
 ├── frontend/
 │   ├── app/
@@ -65,16 +174,11 @@ isometric-mto/
 └── .gitignore
 ```
 
-## ⚙ Installation
+---
 
-### Clone Repository
+# ⚙️ Installation
 
-```bash
-git clone <your-repository-url>
-cd isometric-mto
-```
-
-### Backend
+## Backend
 
 ```bash
 cd backend
@@ -82,27 +186,21 @@ cd backend
 python -m venv venv
 
 source venv/bin/activate
-```
 
-Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
 
-Create a `.env` file
-
-```
-GEMINI_API_KEY=YOUR_API_KEY
-```
-
-Run backend
-
-```bash
 uvicorn main:app --reload
 ```
 
-### Frontend
+Backend runs on:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## Frontend
 
 ```bash
 cd frontend
@@ -112,44 +210,112 @@ npm install
 npm run dev
 ```
 
-Open
+Frontend runs on:
 
 ```
 http://localhost:3000
 ```
 
-## 🚀 Workflow
+---
 
-1. Upload a piping isometric drawing.
-2. Backend sends the drawing to Google Gemini AI.
-3. AI detects piping components.
-4. Material Take-Off is generated.
-5. Results are displayed.
-6. Download the report as CSV.
+# 🔑 Environment Variable
 
-## 📊 Sample Output
+Create a `.env` file inside the backend folder.
 
-| Component | Specification | Unit | Quantity |
-|-----------|--------------|------|---------|
-| Pipe | 2 inch | Meters | 60 |
-| Elbow | 2 inch | Nos | 20 |
-| Tee | 2 inch | Nos | 12 |
-| Gate Valve | 2 inch | Nos | 6 |
+```
+GEMINI_API_KEY=YOUR_API_KEY
+```
 
-## 🔮 Future Enhancements
-
-- PDF Export
-- Excel Export
-- Confidence Score
-- OCR Improvements
-- Support for more engineering drawing formats
-
-## 👩‍💻 Author
-
-**Srilakshmi**
-
-Built as an AI Engineering Internship Project.
+The `.env` file is intentionally excluded from version control.
 
 ---
 
-⭐ If you found this project useful, please consider giving it a star.
+# 🧪 Mock Mode
+
+As required by the assessment, the application supports execution without an API key.
+
+When no `GEMINI_API_KEY` is available, the backend automatically switches to **Mock Mode**, returning a predefined sample Material Take-Off. This ensures the application remains functional even without external AI services.
+
+---
+
+# 📊 Sample Output
+
+| Component | Specification | Quantity |
+|-----------|--------------|---------:|
+| Pipe | 2 inch | 40 |
+| Elbow 90° | 2 inch | 18 |
+| Gate Valve | 2 inch | 6 |
+| Flange | 2 inch | 12 |
+| Gasket | 2 inch | 12 |
+
+---
+
+# 📥 Export
+
+Generated Material Take-Off reports can be exported as CSV for further engineering workflows.
+
+---
+
+# 🧠 Design Decisions
+
+- FastAPI was selected for its lightweight and high-performance REST API capabilities.
+- Next.js was chosen to build a responsive and interactive frontend.
+- Google Gemini 2.5 Flash was used because it supports multimodal understanding of PDFs and images.
+- The backend converts AI responses into structured JSON before sending them to the frontend.
+- CSV export was implemented because it is a widely accepted engineering data exchange format.
+
+---
+
+# ⚖️ Trade-offs
+
+- The project prioritizes a complete end-to-end AI workflow over perfect extraction accuracy.
+- Quantities are estimated when drawings contain incomplete or unclear dimensions.
+- OCR was not implemented separately because Gemini provides multimodal document understanding.
+- Advanced engineering attributes (Schedule, Material Grade, Pressure Class) are extracted only when clearly visible.
+
+---
+
+# 📌 Assumptions
+
+- Each uploaded file contains one piping isometric drawing.
+- Drawings are reasonably legible.
+- AI estimates values when dimensions are unclear.
+- Mock Mode is used when no API key is configured.
+- CSV output is intended for review and may require engineering validation before procurement.
+
+---
+
+# ⚠️ Known Limitations
+
+- AI output quality depends on drawing clarity.
+- Handwritten annotations may reduce extraction accuracy.
+- Extremely complex drawings may require manual verification.
+- Some engineering metadata may not be available if not present in the drawing.
+
+---
+
+# 🚀 Future Enhancements
+
+- Excel export
+- PDF report generation
+- OCR enhancement
+- Confidence score for detected components
+- Multi-sheet isometric processing
+- Automatic BOM generation
+- Engineering specification extraction (Schedule, Material, Pressure Class)
+
+---
+
+# 👩‍💻 Author
+
+**Srilakshmi**
+
+B.Tech (Hons.) – Data Science & Engineering
+
+Developed as part of the **Pathnovo Full-Stack AI Engineer Internship Assessment**.
+
+---
+
+# 📄 License
+
+This project was developed exclusively for the Pathnovo Full-Stack AI Engineer Internship Assessment and educational purposes.
