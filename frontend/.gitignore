@@ -1,0 +1,23 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+uploads/
+
+# Node
+node_modules/
+.next/
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Cursor
+.cursor/
+
+# Misc
+*.log
