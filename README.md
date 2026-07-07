@@ -6,6 +6,14 @@ An AI-powered web application that automatically generates a Material Take-Off (
 
 The AI Material Take-Off Generator helps engineers automate the extraction of piping components from isometric drawings. Instead of manually counting components, users upload a PDF or image, and the AI generates a structured Material Take-Off report.
 
+## 📌 Project Description
+
+The AI Material Take-Off (MTO) Generator is an AI-powered web application designed to automate the extraction of material quantities from piping isometric drawings. Traditionally, engineers manually inspect engineering drawings to identify piping components and prepare Material Take-Off reports, a process that is time-consuming, repetitive, and prone to human error.
+
+This application leverages Google Gemini AI to analyze uploaded piping isometric drawings in PDF or image format, identify visible piping components such as pipes, elbows, tees, reducers, flanges, valves, gaskets, bolt sets, supports, and other fittings, and generate a structured Material Take-Off report automatically. The generated report is displayed through a modern, responsive dashboard and can be downloaded as a CSV file for further engineering analysis and documentation.
+
+The solution is built using a Next.js frontend, a FastAPI backend, and the Google Gemini 2.5 Flash model, demonstrating the integration of modern AI technologies with full-stack web development. The application is designed to handle different types of piping isometric drawings, including scanned, hand-marked, low-quality, and CAD-generated drawings, making it a scalable foundation for AI-assisted engineering workflows.
+
 ## ✨ Features
 
 - 📄 Upload PDF or image isometric drawings
